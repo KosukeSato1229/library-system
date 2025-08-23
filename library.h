@@ -1,3 +1,5 @@
+// gcc -o library-system main.c library.c
+
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
