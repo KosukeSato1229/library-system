@@ -3,6 +3,7 @@
 #include "library.h"
 
 void menu() {
+
     printf("\n====== 図書館管理システム ======\n");
     printf("1. 本を追加\n");
     printf("2. 本の一覧\n");
@@ -16,6 +17,7 @@ void menu() {
 }
 
 int main() {
+
     int choice;
     char title[TITLE_LEN];
     char author[AUTHOR_LEN];
@@ -23,11 +25,13 @@ int main() {
     init_library();
 
     while (1) {
+
         menu();
         scanf("%d", &choice);
         getchar();
 
         switch (choice) {
+
             case 1:
                 printf("タイトル: ");
                 fgets(title, TITLE_LEN, stdin);
@@ -43,56 +47,72 @@ int main() {
 
                 add_book(title, author, year);
                 break;
+                
             case 2:
                 list_books();
                 break;
+
             case 3:
                 printf("検索するタイトル: ");
                 fgets(title, TITLE_LEN, stdin);
                 title[strcspn(title, "\n")] = 0;
                 {
                     Book *b = search_book_by_title(title);
+
                     if (b) {
+
                         printf("見つかりました -> ID:%d タイトル:%s 著者:%s\n", b->id, b->title, b->author);
+
                     } else {
+
                         printf("本が見つかりませんでした。\n");
                     }
                 }
                 break;
+
             case 4:
                 printf("検索する著者: ");
                 fgets(author, AUTHOR_LEN, stdin);
                 author[strcspn(author, "\n")] = 0;
                 {
                     Book *b = search_book_by_author(author);
+
                     if (b) {
+
                         printf("見つかりました -> ID:%d タイトル:%s 著者:%s\n", b->id, b->title, b->author);
+
                     } else {
+
                         printf("本が見つかりませんでした。\n");
                     }
                 }
                 break;
+
             case 5:
                 printf("借りたい本のID: ");
                 scanf("%d", &id);
                 getchar();
                 borrow_book(id);
                 break;
+                
             case 6:
                 printf("返す本のID: ");
                 scanf("%d", &id);
                 getchar();
                 return_book(id);
                 break;
+
             case 7:
                 printf("削除する本のID: ");
                 scanf("%d", &id);
                 getchar();
                 remove_book(id);
                 break;
+
             case 0:
                 printf("終了します。\n");
                 exit(0);
+                
             default:
                 printf("無効な選択です。\n");
                 break;
