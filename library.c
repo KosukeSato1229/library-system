@@ -5,7 +5,7 @@
 static Book library[MAX_BOOKS];
 static int book_count = 0;
 
-void init_library() {
+void init_library(void) {
     
     book_count = 0;
 
@@ -35,7 +35,7 @@ int add_book(const char *title, const char *author, int year) {
     return 1;
 }
 
-void list_books() {
+void list_books(void) {
 
     printf("\n--- 図書一覧 ---\n");
 
