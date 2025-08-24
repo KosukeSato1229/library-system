@@ -24,12 +24,15 @@ int main(void) {
     char author[AUTHOR_LEN];
     int year;
     int id;
+
     init_library(void);
 
     while (1) {
 
         menu(void);
+        
         scanf("%d", &choice);
+        
         getchar(void);
 
         switch (choice) {
