@@ -25,8 +25,10 @@ int add_book(const char *title, const char *author, int year) {
     }
     
     library[book_count].id = book_count + 1;
+
     strncpy(library[book_count].title, title, TITLE_LEN - 1);
     strncpy(library[book_count].author, author, AUTHOR_LEN - 1);
+    
     library[book_count].year = year;
     library[book_count].is_borrowed = 0;
     

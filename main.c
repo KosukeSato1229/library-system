@@ -3,7 +3,7 @@
 #include "library.h"
 #include <string.h>
 
-void menu(void) {
+static void menu(void) {
 
     printf("\n====== 図書館管理システム ======\n");
     printf("1. 本を追加\n");
